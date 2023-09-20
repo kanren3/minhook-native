@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  MinHook - The Minimalistic API Hooking Library for x64/x86
  *  Copyright (C) 2009-2017 Tsuda Kageyu.
  *  All rights reserved.
@@ -498,7 +498,7 @@ MH_STATUS WINAPI MH_Initialize (VOID)
     if (g_hHeap == NULL) {
         SYSTEM_BASIC_INFORMATION SystemBasicInfo;
         NtQuerySystemInformation (SystemBasicInformation, &SystemBasicInfo, sizeof (SYSTEM_BASIC_INFORMATION), NULL);
-        g_hHeap = RtlCreateHeap (HEAP_CLASS_1 | HEAP_GROWABLE, NULL, SystemBasicInfo.PageSize * 16, 0, NULL, NULL);
+        g_hHeap = RtlCreateHeap (HEAP_GROWABLE, NULL, SystemBasicInfo.PageSize * 16, 0, NULL, NULL);
 
         if (g_hHeap != NULL) {
             // Initialize the internal function buffer.
